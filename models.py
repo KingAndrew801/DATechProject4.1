@@ -26,7 +26,7 @@ class Product(Base):
     date_updated = Column(Date)
 
 def loadbrands():
-    with open('brands.csv', newline='') as csvfile:
+    with open('./store-inventory/brands.csv', newline='') as csvfile:
         reader = csv.reader(csvfile, delimiter= '|')
         rows = list(reader)
         csvlist = []
