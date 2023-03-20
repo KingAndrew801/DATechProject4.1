@@ -27,11 +27,15 @@ class Product(Base):
 
 def loadbrands():
     with open('./store-inventory/brands.csv', newline='') as csvfile:
-        print(csvfile)
+        brandreader = csv.reader(csvfile, delimiter= "|")
+        rows= list(brandreader)
+        del rows[0]
+        for row in rows:
+            session.add(row)
+        session.commit()
 
 
 
 if __name__ == "__main__":
     Base.metadata.create_all(engine)
     loadbrands()
-    print(wtf)
