@@ -27,13 +27,7 @@ class Product(Base):
 
 def loadbrands():
     with open('./store-inventory/brands.csv', newline='') as csvfile:
-        reader = csv.reader(csvfile, delimiter= '|')
-        rows = list(reader)
-        csvlist = []
-        del rows[0]
-        print(rows)
-        while rows:
-            session.add(rows.pop(0))
+        print(csvfile)
 
 
 
