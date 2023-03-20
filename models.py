@@ -14,6 +14,9 @@ class Brands(Base):
     brand_id = Column(Integer, primary_key= True )
     brand_name = Column(String)
 
+    def __repr__(self):
+        return f"{self.brand_name}"
+
 
 
 class Product(Base):
@@ -31,8 +34,9 @@ def loadbrands():
         rows= list(brandreader)
         del rows[0]
         for row in rows:
-            session.add(row)
-        session.commit()
+            print(row[0])
+            newbrand = Brands(row[0])
+            session.add(newbrand)
 
 
 
