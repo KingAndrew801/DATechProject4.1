@@ -35,7 +35,7 @@ def loadbrands():
         del rows[0]
         for row in rows:
             print(row[0])
-            newbrand = Brands(row[0])
+            newbrand = Brands(brand_name = row[0])
             session.add(newbrand)
 
 
