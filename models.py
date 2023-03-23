@@ -18,7 +18,6 @@ class Brands(Base):
         return f"{self.brand_name}"
 
 
-
 class Product(Base):
     __tablename__ = "products"
 
@@ -28,18 +27,67 @@ class Product(Base):
     product_price = Column(Float)
     date_updated = Column(Date)
 
+def readerfunc(target):
+    with open(f'./store-inventory/{target}.csv', newline='') as csvfile:
+        brandreader = csv.reader(csvfile, delimiter="|")
+        rows = list(brandreader)
+        return rows
+
 def loadbrands():
-    with open('./store-inventory/brands.csv', newline='') as csvfile:
-        brandreader = csv.reader(csvfile, delimiter= "|")
-        rows= list(brandreader)
-        del rows[0]
+    rows = readerfunc('brands')
+    del rows[0]
+    if session.query(Brands).first():
+        for row in rows:
+            if brandchecker(row[0]):
+                continue
+            else:
+                session.add(Brands(brand_name = row[0]))
+    else:
         for row in rows:
             print(row[0])
             newbrand = Brands(brand_name = row[0])
             session.add(newbrand)
+    session.commit()
+
+def brandchecker(bsearch):
+    for item in session.query(Brands):
+        if item.brand_name == bsearch:
+            return item
+
+def prodloader():
+    rows = readerfunc('inventory')
+    del rows[0]
+    for row in rows:
+        cleanerprod = row[0].split(',')
+        cleantitle = []
+        print(cleanerprod)
+        print(f'this is the len = {len(cleanerprod)}')
+        if len(cleanerprod) > 5:
+            print('XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX')
+            cleantitle.append(cleanerprod[0])
+            modtitle = []
+            lenrange = len(cleanerprod) - 5
+            print(f'this is the target index {len(cleanerprod) - 5}')
+            print(f'this is the target string= {cleanerprod[1]}')
+            for titlecount in range(1, (lenrange)):
+                print(f"titlecount = {titlecount}")
+                cleanesttitle = cleantitle + cleanerprod[titlecount]
+                print(cleanesttitle)
+
+
+
+
+
+
+
+
+
 
 
 
 if __name__ == "__main__":
     Base.metadata.create_all(engine)
-    loadbrands()
+    # rows = readerfunc('inventory')
+    # for row in rows:
+    #     print(row)
+    prodloader()
