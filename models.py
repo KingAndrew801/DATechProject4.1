@@ -2,6 +2,7 @@ from sqlalchemy import create_engine, Date, Column, Integer, String, Float, Fore
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, relationship, declarative_base
 import csv
+from datetime import datetime
 
 engine = create_engine("sqlite:///inventory.db", echo=False)
 Session = sessionmaker(bind=engine)
@@ -24,12 +25,13 @@ class Product(Base):
     product_id = Column(Integer, primary_key=True)
     product_name = Column(String)
     product_quantity = Column(Integer)
-    product_price = Column(Float)
+    product_price = Column(Integer)
     date_updated = Column(Date)
+    brand_id = Column(Integer)
 
 def readerfunc(target):
     with open(f'./store-inventory/{target}.csv', newline='') as csvfile:
-        brandreader = csv.reader(csvfile, delimiter="|")
+        brandreader = csv.reader(csvfile, delimiter=",")
         rows = list(brandreader)
         return rows
 
@@ -58,22 +60,24 @@ def prodloader():
     rows = readerfunc('inventory')
     del rows[0]
     for row in rows:
-        cleanerprod = row[0].split(',')
-        cleantitle = []
-        print(cleanerprod)
-        print(f'this is the len = {len(cleanerprod)}')
-        if len(cleanerprod) > 5:
-            print('XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX')
-            cleantitle.append(cleanerprod[0])
-            modtitle = []
-            lenrange = len(cleanerprod) - 5
-            print(f'this is the target index {len(cleanerprod) - 5}')
-            print(f'this is the target string= {cleanerprod[1]}')
-            for titlecount in range(1, (lenrange)):
-                print(f"titlecount = {titlecount}")
-                cleanesttitle = cleantitle + cleanerprod[titlecount]
-                print(cleanesttitle)
+        cleanprice = row[1].replace('$', '')
+        cprod = Product(product_name = row[0],
+                product_price=int(cleanprice.replace('.', '')),
+                product_quantity = int(row[2]),
+                date_updated = datetime.strptime(row[3], '%m/%d/%Y').date(),
+                brand_id = brandidfinder(row[4]))
+        session.add(cprod)
+    session.commit()
 
+def prodchecker(psearch):
+    for item in session.query(Product):
+        if item.product_name == psearch:
+            return item
+
+def brandidfinder(brand):
+    for brandie in session.query(Brands):
+        if brandie.brand_name == brand:
+            return brandie.brand_id
 
 
 
