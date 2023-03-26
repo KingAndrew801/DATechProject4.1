@@ -60,13 +60,21 @@ def prodloader():
     rows = readerfunc('inventory')
     del rows[0]
     for row in rows:
-        cleanprice = row[1].replace('$', '')
-        cprod = Product(product_name = row[0],
-                product_price=int(cleanprice.replace('.', '')),
-                product_quantity = int(row[2]),
-                date_updated = datetime.strptime(row[3], '%m/%d/%Y').date(),
-                brand_id = brandidfinder(row[4]))
-        session.add(cprod)
+        # if prodchecker(row):
+        #     cleanprice = row[1].replace('$', '')
+        #     upprod = prodchecker(row)
+        #     upprod(product_price=int(cleanprice.replace('.', '')),
+        #             product_quantity = int(row[2]),
+        #             date_updated = datetime.strptime(row[3], '%m/%d/%Y').date())
+        #
+        # else:
+            cleanprice = row[1].replace('$', '')
+            cprod = Product(product_name = row[0],
+                    product_price=int(cleanprice.replace('.', '')),
+                    product_quantity = int(row[2]),
+                    date_updated = datetime.strptime(row[3], '%m/%d/%Y').date(),
+                    brand_id = brandidfinder(row[4]))
+            session.add(cprod)
     session.commit()
 
 def prodchecker(psearch):
