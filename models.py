@@ -64,17 +64,13 @@ def prodloader():
     rows = readerfunc('inventory')
     del rows[0]
     for row in rows:
-        print(row)
         if prodchecker(row):
             cleanprice = row[1].replace('$', '')
             upprod = prodchecker(row)
-            print(upprod)
-            upprod.product_price = int(cleanprice.replace('.', '')),
-            upprod.product_quantity = int(row[2]),
+            upprod.product_price = int(cleanprice.replace('.', ''))
+            upprod.product_quantity = int(row[2])
             upprod.date_updated = datetime.strptime(row[3], '%m/%d/%Y').date()
-            print('matchloop end')
         else:
-            print('unmatch start')
             cleanprice = row[1].replace('$', '')
             cprod = Product(product_name = row[0],
                     product_price=int(cleanprice.replace('.', '')),
@@ -87,7 +83,6 @@ def prodloader():
 def prodchecker(psearch):
     for item in session.query(Product):
         if item.product_name == psearch[0]:
-            print('Prodmatch = True')
             return item
 
 def brandidfinder(brand):
@@ -110,7 +105,7 @@ if __name__ == "__main__":
     # rows = readerfunc('inventory')
     # for row in rows:
     #     print(row)
-    # loadbrands()
-    # prodloader()
-    for item in session.query(Product):
-        print(item)
+#     for item in session.query(Product):
+#         print(item)
+    loadbrands()
+    prodloader()
