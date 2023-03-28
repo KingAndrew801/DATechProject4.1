@@ -105,7 +105,8 @@ if __name__ == "__main__":
     # rows = readerfunc('inventory')
     # for row in rows:
     #     print(row)
-#     for item in session.query(Product):
-#         print(item)
-    loadbrands()
-    prodloader()
+    for item in session.query(Product):
+        print(item)
+        print(f'Product id = {item.product_id}')
+    # loadbrands()
+    # prodloader()
