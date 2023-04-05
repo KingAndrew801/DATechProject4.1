@@ -34,64 +34,55 @@ Enter product ID number:  ''')
 ---------------------------------------
 Press enter to proceed...''')
             elif choice == 'n':
-                    try:
-                        print("-"*39)
-                        newname = input('Enter the name of your product:  ')
-                        if newname.isalpha():
-                            continue
-                        else:
-                            raise TypeError('You must use letters for your title.')
-                    except TypeError as err:
-                        print(err)
-                        print('-' * 39)
-                        print(err)
-                        print("You will be sent back to the menu shortly...")
-                        time.sleep(1)
-                    try:
-                        print("-" * 39)
-                        newquant = input('Enter the quantity:  ')
-                        if isinstance(newquant, int):
-                            continue
-                        else:
-                            raise ValueError("Quantity must be an integer")
-                    except ValueError as err:
-                        print(err)
-                        pass
-                    pass
+                    createprod()
+            elif choice == 'a':
+                pass
         except ValueError as err:
             print(err)
 
 def createprod():
-    newname = None
+    newpname()
+    newpquant()
+    newpprice()
 
-    try:
-        print("-" * 39)
-        newprodname = input('Enter the name of your product:  ')
-        if newprodname.isalpha():
-            for dbprod in models.session.query(Product):
-                if dbprod.product_name == newprodname:
-                    print("A product with this name already exists.")
-                else:
-                    newname = newprodname
-        else:
-            raise TypeError('You must use letters for your title.')
-    except TypeError as err:
-        print(err)
-        print('-' * 39)
-        print(err)
-        print("You will be sent back to the menu shortly...")
-        time.sleep(1)
-    try:
-        print("-" * 39)
-        newquant = input('Enter the quantity:  ')
-        if isinstance(newquant, int):
-            continue
-        else:
-            raise ValueError("Quantity must be an integer")
-    except ValueError as err:
-        print(err)
-        pass
-    pass
+
+
+def newpname():
+    trying = True
+    while trying:
+        try:
+            print("-" * 39)
+            newprodname = input('Enter the name of your product:  ')
+            if newprodname.isalpha():
+                for dbprod in models.session.query(Product):
+                    if dbprod.product_name == newprodname:
+                        print("A product with this name already exists.")
+                    else:
+                        trying = False
+                        return newprodname
+            else:
+                raise TypeError('You must use letters for your title.')
+        except TypeError as err:
+            print(err)
+            print("Please try again...")
+
+def newpquant():
+    trying = True
+    while trying:
+        try:
+            print("-" * 39)
+            newquant = input('Enter the quantity:  ')
+            if isinstance(newquant, int):
+                trying = False
+                return newquant
+            else:
+                raise ValueError("Quantity must be an integer")
+        except TypeError as err:
+            print(err)
+
+def newpprice():
+
+
 
 if __name__ == "__main__":
     Base.metadata.create_all(engine)
