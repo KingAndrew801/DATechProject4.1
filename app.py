@@ -1,6 +1,7 @@
 from models import Base, engine
 from models import Product
 from models import Brands
+import datetime
 import models
 import time
 
@@ -36,14 +37,39 @@ Press enter to proceed...''')
             elif choice == 'n':
                     createprod()
             elif choice == 'a':
-                pass
+                mostexp = ['nada', 0]
+                for i in models.session.query(Product):
+                    if i.product_price > mostexp[1]:
+                        mostexp = [i.product_name, i.product_price]
+                print(f"{mostexp[0]} is the most expensive product ({mostexp[1]})")
+                leastexp = ['nada', 99999999]
+                for i in models.session.query(Product):
+                    if i.product_price < leastexp[1]:
+                        leastexp = [i.product_name, i.product_price]
+                print(f"{leastexp[0]} is the cheapest product ({leastexp[1]})")
+                brandies = []
+                largie = ('nada' , 0)
+                for b in models.session.query(Brands):
+                    brandies.append((b, len(list(models.session.query(Product).filter(Product.brand_id == b.brand_id)))))
+                for v in brandies:
+                    if v[1] > largie[1]:
+                        largie = v
+                print(f'{largie[0]} has the most products of any brand ({largie[1]})')
+                oldie = ('nada', datetime.date.today())
+                for p in models.session.query(Product):
+                    if p.date_updated < oldie[1]:
+                        oldie = (p.product_name, p.date_updated)
+                print(f'{oldie[0]} has spent the most time without an update ({oldie[1]})')
+            elif choice == 'b':
+                
         except ValueError as err:
             print(err)
-
+    input("Press enter to continue...")
 def createprod():
-    newpname()
-    newpquant()
-    newpprice()
+    newp = Product(product_name = newpname(), product_quantity = newpquant(),
+                   product_price = newpprice(),date_updated = datetime.datetime.now().date(),
+                   brand_id = newpbrand())
+    return newp
 
 
 
@@ -53,15 +79,12 @@ def newpname():
         try:
             print("-" * 39)
             newprodname = input('Enter the name of your product:  ')
-            if newprodname.isalpha():
-                for dbprod in models.session.query(Product):
-                    if dbprod.product_name == newprodname:
-                        print("A product with this name already exists.")
-                    else:
-                        trying = False
-                        return newprodname
-            else:
-                raise TypeError('You must use letters for your title.')
+            for dbprod in models.session.query(Product):
+                if dbprod.product_name == newprodname:
+                    print("A product with this name already exists.")
+                else:
+                    trying = False
+                    return newprodname
         except TypeError as err:
             print(err)
             print("Please try again...")
@@ -72,17 +95,50 @@ def newpquant():
         try:
             print("-" * 39)
             newquant = input('Enter the quantity:  ')
-            if isinstance(newquant, int):
+            if isinstance(int(newquant), int):
                 trying = False
                 return newquant
             else:
-                raise ValueError("Quantity must be an integer")
+                raise TypeError("Quantity must be expressed as an integer")
+        except TypeError as err:
+            print(err)
+            print("Please try again...")
+
+def newpprice():
+    trying = True
+    while trying:
+        try:
+            print("-" * 39)
+            print("Enter price with no special charachters.")
+            print("If price is $2.00 then enter: 200")
+            print("-" * 39)
+            newprice = input('Enter product price:  ')
+            if len(newprice) > 2:
+                if isinstance(int(newprice), int):
+                    trying = False
+                    return newprice
+            else:
+                raise TypeError("Price must be integer of at least 3 digits.")
         except TypeError as err:
             print(err)
 
-def newpprice():
-
-
+def newpbrand():
+    trying = True
+    while trying:
+        try:
+            print("-" * 39)
+            newbrand = input("Enter brand's name of your product :  ")
+            if models.brandchecker(newbrand):
+                trying = False
+                print(models.brandchecker(newbrand))
+                print("### this returns a brand id from existing product")
+                return models.brandchecker(newbrand).brand_id()
+            else:
+                trying = False
+                return Brands(brand_name = newbrand.title())
+        except TypeError as err:
+            print(err)
+            print("Please try again...")
 
 if __name__ == "__main__":
     Base.metadata.create_all(engine)
