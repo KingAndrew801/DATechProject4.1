@@ -61,7 +61,7 @@ Press enter to proceed...''')
                         oldie = (p.product_name, p.date_updated)
                 print(f'{oldie[0]} has spent the most time without an update ({oldie[1]})')
             elif choice == 'b':
-                
+
         except ValueError as err:
             print(err)
     input("Press enter to continue...")
