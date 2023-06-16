@@ -1,83 +1,175 @@
 product_id,product_name,product_price,product_quantity,date_updated,brand_id
+1,Bagel - Whole White Sesame,$4.30,97,11/01/2018,1
+2,Sauce - Caesar Dressing,$8.25,16,04/10/2019,2
+3,Shiratamako - Rice Flour,$7.99,71,03/07/2018,3
+4,Tart - Raisin And Pecan,$1.06,86,01/18/2019,4
+5,Radish,$2.47,22,11/06/2018,5
+6,Juice - V8 Splash,$1.15,67,01/13/2018,6
+7,Red Currants,$6.77,49,10/01/2018,5
+8,Soup - Base Broth Beef,$5.44,62,03/09/2019,7
+9,Tomatoes Tear Drop Yellow,$0.64,73,02/09/2019,5
+10,Mussels - Cultivated,$9.34,24,07/31/2018,5
+11,"Bread - Crumbs, Bulk",$4.49,88,01/12/2019,8
+12,"Beans - Long, Chinese",$4.73,47,09/22/2018,9
+13,"Beans - Navy, Dry",$4.60,44,01/20/2018,9
+14,Juice - V8 Splash,$1.15,67,01/13/2018,6
+15,"Basil - Dry, Rubbed",$8.69,21,02/04/2018,5
+16,Apple - Granny Smith,$5.06,72,01/12/2018,5
+17,"Lid - High Heat, Super Clear",$1.23,5,02/09/2018,10
+18,Oranges - Navel,$4.78,46,06/06/2018,5
+19,Berry Brulee,$7.59,50,08/25/2018,5
+20,Lobster - Canned Premium,$7.61,57,04/15/2018,5
+21,Sauce - Caesar Dressing,$8.25,16,04/10/2019,2
+22,Ham - Procutinni,$5.70,8,01/09/2019,5
+23,Veal - Ground,$7.67,5,12/19/2018,5
+24,Oil - Cooking Spray,$4.20,6,06/11/2018,11
+25,"Extract - Vanilla,artificial",$2.91,20,06/08/2018,12
+26,"Mushroom - Porcini, Dry",$8.14,71,07/26/2018,5
+27,Wine - Cabernet Sauvignon,$7.41,54,03/10/2018,13
+28,Bagel - Whole White Sesame,$4.30,97,11/01/2018,1
+29,Sauce - Caesar Dressing,$8.05,81,12/28/2018,2
+30,Shiratamako - Rice Flour,$7.99,71,03/07/2018,3
+31,Tart - Raisin And Pecan,$1.06,86,01/18/2019,4
+32,Radish,$2.47,22,11/06/2018,5
+33,Juice - V8 Splash,$1.25,67,01/10/2018,6
+34,Red Currants,$6.77,49,10/01/2018,5
+35,Soup - Base Broth Beef,$5.44,62,03/09/2019,7
+36,Tomatoes Tear Drop Yellow,$0.64,73,02/09/2019,5
+37,Mussels - Cultivated,$9.34,24,07/31/2018,5
+38,"Bread - Crumbs, Bulk",$4.49,88,01/12/2019,8
+39,"Beans - Long, Chinese",$4.73,47,09/22/2018,9
+40,"Beans - Navy, Dry",$4.60,44,01/20/2018,9
+41,Juice - V8 Splash,$1.15,67,01/13/2018,6
+42,"Basil - Dry, Rubbed",$8.69,21,02/04/2018,5
+43,Apple - Granny Smith,$5.06,72,01/12/2018,5
+44,"Lid - High Heat, Super Clear",$1.23,5,02/09/2018,10
+45,Oranges - Navel,$4.78,46,06/06/2018,5
+46,Berry Brulee,$7.59,50,08/25/2018,5
+47,Lobster - Canned Premium,$7.61,57,04/15/2018,5
+48,Sauce - Caesar Dressing,$8.25,16,04/10/2019,2
+49,Ham - Procutinni,$5.70,8,01/09/2019,5
+50,Veal - Ground,$7.67,5,12/19/2018,5
+51,Oil - Cooking Spray,$4.20,6,06/11/2018,11
+52,"Extract - Vanilla,artificial",$2.91,20,06/08/2018,12
+53,"Mushroom - Porcini, Dry",$8.14,71,07/26/2018,5
+54,Wine - Cabernet Sauvignon,$7.41,54,03/10/2018,13
+55,Bagel - Whole White Sesame,$4.30,97,11/01/2018,1
+56,Sauce - Caesar Dressing,$8.05,81,12/28/2018,2
+57,Shiratamako - Rice Flour,$7.99,71,03/07/2018,3
+58,Tart - Raisin And Pecan,$1.06,86,01/18/2019,4
+59,Radish,$2.47,22,11/06/2018,5
+60,Juice - V8 Splash,$1.25,67,01/10/2018,6
+61,Red Currants,$6.77,49,10/01/2018,5
+62,Soup - Base Broth Beef,$5.44,62,03/09/2019,7
+63,Tomatoes Tear Drop Yellow,$0.64,73,02/09/2019,5
+64,Mussels - Cultivated,$9.34,24,07/31/2018,5
+65,"Bread - Crumbs, Bulk",$4.49,88,01/12/2019,8
+66,"Beans - Long, Chinese",$4.73,47,09/22/2018,9
+67,"Beans - Navy, Dry",$4.60,44,01/20/2018,9
+68,Juice - V8 Splash,$1.15,67,01/13/2018,6
+69,"Basil - Dry, Rubbed",$8.69,21,02/04/2018,5
+70,Apple - Granny Smith,$5.06,72,01/12/2018,5
+71,"Lid - High Heat, Super Clear",$1.23,5,02/09/2018,10
+72,Oranges - Navel,$4.78,46,06/06/2018,5
+73,Berry Brulee,$7.59,50,08/25/2018,5
+74,Lobster - Canned Premium,$7.61,57,04/15/2018,5
+75,Sauce - Caesar Dressing,$8.25,16,04/10/2019,2
+76,Ham - Procutinni,$5.70,8,01/09/2019,5
+77,Veal - Ground,$7.67,5,12/19/2018,5
+78,Oil - Cooking Spray,$4.20,6,06/11/2018,11
+79,"Extract - Vanilla,artificial",$2.91,20,06/08/2018,12
+80,"Mushroom - Porcini, Dry",$8.14,71,07/26/2018,5
+81,Wine - Cabernet Sauvignon,$7.41,54,03/10/2018,13
 product_id,product_name,product_price,product_quantity,date_updated,brand_id
-,Bagel - Whole White Sesame,$4.30,97,11/01/2018,
-,Sauce - Caesar Dressing,$8.25,16,04/10/2019,
-,Shiratamako - Rice Flour,$7.99,71,03/07/2018,
-,Tart - Raisin And Pecan,$1.06,86,01/18/2019,
-,Radish,$2.47,22,11/06/2018,
-,Juice - V8 Splash,$1.15,67,01/13/2018,
-,Red Currants,$6.77,49,10/01/2018,
-,Soup - Base Broth Beef,$5.44,62,03/09/2019,
-,Tomatoes Tear Drop Yellow,$0.64,73,02/09/2019,
-,Mussels - Cultivated,$9.34,24,07/31/2018,
-,"Bread - Crumbs, Bulk",$4.49,88,01/12/2019,
-,"Beans - Long, Chinese",$4.73,47,09/22/2018,
-,"Beans - Navy, Dry",$4.60,44,01/20/2018,
-,Juice - V8 Splash,$1.15,67,01/13/2018,
-,"Basil - Dry, Rubbed",$8.69,21,02/04/2018,
-,Apple - Granny Smith,$5.06,72,01/12/2018,
-,"Lid - High Heat, Super Clear",$1.23,5,02/09/2018,
-,Oranges - Navel,$4.78,46,06/06/2018,
-,Berry Brulee,$7.59,50,08/25/2018,
-,Lobster - Canned Premium,$7.61,57,04/15/2018,
-,Sauce - Caesar Dressing,$8.25,16,04/10/2019,
-,Ham - Procutinni,$5.70,8,01/09/2019,
-,Veal - Ground,$7.67,5,12/19/2018,
-,Oil - Cooking Spray,$4.20,6,06/11/2018,
-,"Extract - Vanilla,artificial",$2.91,20,06/08/2018,
-,"Mushroom - Porcini, Dry",$8.14,71,07/26/2018,
-,Wine - Cabernet Sauvignon,$7.41,54,03/10/2018,
-,Bagel - Whole White Sesame,$4.30,97,11/01/2018,
-,Sauce - Caesar Dressing,$8.05,81,12/28/2018,
-,Shiratamako - Rice Flour,$7.99,71,03/07/2018,
-,Tart - Raisin And Pecan,$1.06,86,01/18/2019,
-,Radish,$2.47,22,11/06/2018,
-,Juice - V8 Splash,$1.25,67,01/10/2018,
-,Red Currants,$6.77,49,10/01/2018,
-,Soup - Base Broth Beef,$5.44,62,03/09/2019,
-,Tomatoes Tear Drop Yellow,$0.64,73,02/09/2019,
-,Mussels - Cultivated,$9.34,24,07/31/2018,
-,"Bread - Crumbs, Bulk",$4.49,88,01/12/2019,
-,"Beans - Long, Chinese",$4.73,47,09/22/2018,
-,"Beans - Navy, Dry",$4.60,44,01/20/2018,
-,Juice - V8 Splash,$1.15,67,01/13/2018,
-,"Basil - Dry, Rubbed",$8.69,21,02/04/2018,
-,Apple - Granny Smith,$5.06,72,01/12/2018,
-,"Lid - High Heat, Super Clear",$1.23,5,02/09/2018,
-,Oranges - Navel,$4.78,46,06/06/2018,
-,Berry Brulee,$7.59,50,08/25/2018,
-,Lobster - Canned Premium,$7.61,57,04/15/2018,
-,Sauce - Caesar Dressing,$8.25,16,04/10/2019,
-,Ham - Procutinni,$5.70,8,01/09/2019,
-,Veal - Ground,$7.67,5,12/19/2018,
-,Oil - Cooking Spray,$4.20,6,06/11/2018,
-,"Extract - Vanilla,artificial",$2.91,20,06/08/2018,
-,"Mushroom - Porcini, Dry",$8.14,71,07/26/2018,
-,Wine - Cabernet Sauvignon,$7.41,54,03/10/2018,
-,Bagel - Whole White Sesame,$4.30,97,11/01/2018,
-,Sauce - Caesar Dressing,$8.05,81,12/28/2018,
-,Shiratamako - Rice Flour,$7.99,71,03/07/2018,
-,Tart - Raisin And Pecan,$1.06,86,01/18/2019,
-,Radish,$2.47,22,11/06/2018,
-,Juice - V8 Splash,$1.25,67,01/10/2018,
-,Red Currants,$6.77,49,10/01/2018,
-,Soup - Base Broth Beef,$5.44,62,03/09/2019,
-,Tomatoes Tear Drop Yellow,$0.64,73,02/09/2019,
-,Mussels - Cultivated,$9.34,24,07/31/2018,
-,"Bread - Crumbs, Bulk",$4.49,88,01/12/2019,
-,"Beans - Long, Chinese",$4.73,47,09/22/2018,
-,"Beans - Navy, Dry",$4.60,44,01/20/2018,
-,Juice - V8 Splash,$1.15,67,01/13/2018,
-,"Basil - Dry, Rubbed",$8.69,21,02/04/2018,
-,Apple - Granny Smith,$5.06,72,01/12/2018,
-,"Lid - High Heat, Super Clear",$1.23,5,02/09/2018,
-,Oranges - Navel,$4.78,46,06/06/2018,
-,Berry Brulee,$7.59,50,08/25/2018,
-,Lobster - Canned Premium,$7.61,57,04/15/2018,
-,Sauce - Caesar Dressing,$8.25,16,04/10/2019,
-,Ham - Procutinni,$5.70,8,01/09/2019,
-,Veal - Ground,$7.67,5,12/19/2018,
-,Oil - Cooking Spray,$4.20,6,06/11/2018,
-,"Extract - Vanilla,artificial",$2.91,20,06/08/2018,
-,"Mushroom - Porcini, Dry",$8.14,71,07/26/2018,
-,Wine - Cabernet Sauvignon,$7.41,54,03/10/2018,
+1,Bagel - Whole White Sesame,$4.30,97,11/01/2018,1
+product_id,product_name,product_price,product_quantity,date_updated,brand_id
+1,Bagel - Whole White Sesame,$4.30,97,11/01/2018,1
+2,Sauce - Caesar Dressing,$8.25,16,04/10/2019,2
+3,Shiratamako - Rice Flour,$7.99,71,03/07/2018,3
+4,Tart - Raisin And Pecan,$1.06,86,01/18/2019,4
+5,Radish,$2.47,22,11/06/2018,5
+product_id,product_name,product_price,product_quantity,date_updated,brand_id
+1,Bagel - Whole White Sesame,$4.30,97,11/01/2018,1
+2,Sauce - Caesar Dressing,$8.25,16,04/10/2019,2
+product_id,product_name,product_price,product_quantity,date_updated,brand_id
+1,Bagel - Whole White Sesame,$4.30,97,11/01/2018,1
+2,Sauce - Caesar Dressing,$8.25,16,04/10/2019,2
+3,Shiratamako - Rice Flour,$7.99,71,03/07/2018,3
+4,Tart - Raisin And Pecan,$1.06,86,01/18/2019,4
+5,Radish,$2.47,22,11/06/2018,5
+6,Juice - V8 Splash,$1.15,67,01/13/2018,6
+7,Red Currants,$6.77,49,10/01/2018,5
+8,Soup - Base Broth Beef,$5.44,62,03/09/2019,7
+9,Tomatoes Tear Drop Yellow,$0.64,73,02/09/2019,5
+10,Mussels - Cultivated,$9.34,24,07/31/2018,5
+11,"Bread - Crumbs, Bulk",$4.49,88,01/12/2019,8
+12,"Beans - Long, Chinese",$4.73,47,09/22/2018,9
+13,"Beans - Navy, Dry",$4.60,44,01/20/2018,9
+14,Juice - V8 Splash,$1.15,67,01/13/2018,6
+15,"Basil - Dry, Rubbed",$8.69,21,02/04/2018,5
+16,Apple - Granny Smith,$5.06,72,01/12/2018,5
+17,"Lid - High Heat, Super Clear",$1.23,5,02/09/2018,10
+18,Oranges - Navel,$4.78,46,06/06/2018,5
+19,Berry Brulee,$7.59,50,08/25/2018,5
+20,Lobster - Canned Premium,$7.61,57,04/15/2018,5
+21,Sauce - Caesar Dressing,$8.25,16,04/10/2019,2
+22,Ham - Procutinni,$5.70,8,01/09/2019,5
+23,Veal - Ground,$7.67,5,12/19/2018,5
+24,Oil - Cooking Spray,$4.20,6,06/11/2018,11
+25,"Extract - Vanilla,artificial",$2.91,20,06/08/2018,12
+26,"Mushroom - Porcini, Dry",$8.14,71,07/26/2018,5
+27,Wine - Cabernet Sauvignon,$7.41,54,03/10/2018,13
+28,Bagel - Whole White Sesame,$4.30,97,11/01/2018,1
+29,Sauce - Caesar Dressing,$8.05,81,12/28/2018,2
+30,Shiratamako - Rice Flour,$7.99,71,03/07/2018,3
+31,Tart - Raisin And Pecan,$1.06,86,01/18/2019,4
+32,Radish,$2.47,22,11/06/2018,5
+33,Juice - V8 Splash,$1.25,67,01/10/2018,6
+34,Red Currants,$6.77,49,10/01/2018,5
+35,Soup - Base Broth Beef,$5.44,62,03/09/2019,7
+36,Tomatoes Tear Drop Yellow,$0.64,73,02/09/2019,5
+37,Mussels - Cultivated,$9.34,24,07/31/2018,5
+38,"Bread - Crumbs, Bulk",$4.49,88,01/12/2019,8
+39,"Beans - Long, Chinese",$4.73,47,09/22/2018,9
+40,"Beans - Navy, Dry",$4.60,44,01/20/2018,9
+41,Juice - V8 Splash,$1.15,67,01/13/2018,6
+42,"Basil - Dry, Rubbed",$8.69,21,02/04/2018,5
+43,Apple - Granny Smith,$5.06,72,01/12/2018,5
+44,"Lid - High Heat, Super Clear",$1.23,5,02/09/2018,10
+45,Oranges - Navel,$4.78,46,06/06/2018,5
+46,Berry Brulee,$7.59,50,08/25/2018,5
+47,Lobster - Canned Premium,$7.61,57,04/15/2018,5
+48,Sauce - Caesar Dressing,$8.25,16,04/10/2019,2
+49,Ham - Procutinni,$5.70,8,01/09/2019,5
+50,Veal - Ground,$7.67,5,12/19/2018,5
+51,Oil - Cooking Spray,$4.20,6,06/11/2018,11
+52,"Extract - Vanilla,artificial",$2.91,20,06/08/2018,12
+53,"Mushroom - Porcini, Dry",$8.14,71,07/26/2018,5
+54,Wine - Cabernet Sauvignon,$7.41,54,03/10/2018,13
+55,Bagel - Whole White Sesame,$4.30,97,11/01/2018,1
+56,Sauce - Caesar Dressing,$8.05,81,12/28/2018,2
+57,Shiratamako - Rice Flour,$7.99,71,03/07/2018,3
+58,Tart - Raisin And Pecan,$1.06,86,01/18/2019,4
+59,Radish,$2.47,22,11/06/2018,5
+60,Juice - V8 Splash,$1.25,67,01/10/2018,6
+61,Red Currants,$6.77,49,10/01/2018,5
+62,Soup - Base Broth Beef,$5.44,62,03/09/2019,7
+63,Tomatoes Tear Drop Yellow,$0.64,73,02/09/2019,5
+64,Mussels - Cultivated,$9.34,24,07/31/2018,5
+65,"Bread - Crumbs, Bulk",$4.49,88,01/12/2019,8
+66,"Beans - Long, Chinese",$4.73,47,09/22/2018,9
+67,"Beans - Navy, Dry",$4.60,44,01/20/2018,9
+68,Juice - V8 Splash,$1.15,67,01/13/2018,6
+69,"Basil - Dry, Rubbed",$8.69,21,02/04/2018,5
+70,Apple - Granny Smith,$5.06,72,01/12/2018,5
+71,"Lid - High Heat, Super Clear",$1.23,5,02/09/2018,10
+72,Oranges - Navel,$4.78,46,06/06/2018,5
+73,Berry Brulee,$7.59,50,08/25/2018,5
+74,Lobster - Canned Premium,$7.61,57,04/15/2018,5
+75,Sauce - Caesar Dressing,$8.25,16,04/10/2019,2
+76,Ham - Procutinni,$5.70,8,01/09/2019,5
+77,Veal - Ground,$7.67,5,12/19/2018,5
+78,Oil - Cooking Spray,$4.20,6,06/11/2018,11
+79,"Extract - Vanilla,artificial",$2.91,20,06/08/2018,12
+80,"Mushroom - Porcini, Dry",$8.14,71,07/26/2018,5
+81,Wine - Cabernet Sauvignon,$7.41,54,03/10/2018,13

@@ -26,6 +26,7 @@ Enter selection:  """).lower()
             if choice == 'v':
                 prodid = input('''---------------------------------------
 Enter product ID number:  ''')
+                print('---------------------------------------')
                 input(f'''Here are your results:
 {models.session.query(Product).filter(Product.product_id == prodid)[0]}
 ---------------------------------------
@@ -73,9 +74,14 @@ Press enter to continue...''')
                         if len(str(item.product_price)) == 1:
                             newp = '$' + '0.0' + str(item.product_price)
                         writer.writerow({
+                            'product_id': item.product_id,
                             'product_name': item.product_name,
                             'product_price': newp, 'product_quantity': item.product_quantity,
-                            'date_updated': str(datetime.datetime.strftime(item.date_updated, '%m/%d/%Y'))})
+                            'date_updated': str(datetime.datetime.strftime(item.date_updated, '%m/%d/%Y')),
+                            'brand_id': item.brand_id})
+                wenis = input('''---------------------------------------
+A backup for your database has been created :)
+Press any Key to continue...''')
 
         except ValueError as err:
             print(err)
