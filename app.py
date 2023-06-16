@@ -65,7 +65,7 @@ Press enter to continue...''')
                     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
                     writer.writeheader()
-                    for item in  models.session.query(Product):
+                    for item in models.session.query(Product):
                         if len(str(item.product_price)) >= 3:
                             newp = '$' + str(item.product_price)[:-2] + '.' + str(item.product_price)[1:]
                         if len(str(item.product_price)) == 2:
