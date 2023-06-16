@@ -1,9 +1,5 @@
-from models import Base, engine
-from models import Product
-from models import Brands
-import datetime
-import models
-import time
+from models import Base, engine, Product, Brands
+import datetime, models, time, csv
 
 
 def startapp():
@@ -60,7 +56,26 @@ Press enter to proceed...''')
                     if p.date_updated < oldie[1]:
                         oldie = (p.product_name, p.date_updated)
                 print(f'{oldie[0]} has spent the most time without an update ({oldie[1]})')
+                wenis = input('''---------------------------------------
+Press enter to continue...''')
+
             elif choice == 'b':
+                with open('backup.csv', 'a', newline='') as csvfile:
+                    fieldnames = ['product_id', 'product_name', 'product_price', 'product_quantity', 'date_updated', 'brand_id']
+                    writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+
+                    writer.writeheader()
+                    for item in  models.session.query(Product):
+                        if len(str(item.product_price)) >= 3:
+                            newp = '$' + str(item.product_price)[:-2] + '.' + str(item.product_price)[1:]
+                        if len(str(item.product_price)) == 2:
+                            newp = '$' + '0.' + str(item.product_price)
+                        if len(str(item.product_price)) == 1:
+                            newp = '$' + '0.0' + str(item.product_price)
+                        writer.writerow({
+                            'product_name': item.product_name,
+                            'product_price': newp, 'product_quantity': item.product_quantity,
+                            'date_updated': str(datetime.datetime.strftime(item.date_updated, '%m/%d/%Y'))})
 
         except ValueError as err:
             print(err)
