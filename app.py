@@ -27,8 +27,12 @@ Enter selection:  """).lower()
                 prodid = input('''---------------------------------------
 Enter product ID number:  ''')
                 print('---------------------------------------')
-                input(f'''Here are your results:
-{models.session.query(Product).filter(Product.product_id == prodid)[0]}
+                viewingprod = models.session.query(Product).filter(Product.product_id == prodid)[0]
+                input(f'''Here is your product information:
+Product name: {viewingprod.product_name}
+Product quantity: {viewingprod.product_quantity}
+Product price: {viewingprod.product_price}
+Date updated: {viewingprod.date_updated}
 ---------------------------------------
 Press enter to proceed...''')
             elif choice == 'n':
@@ -62,7 +66,7 @@ Press enter to continue...''')
 
             elif choice == 'b':
                 with open('backup.csv', 'a', newline='') as csvfile:
-                    fieldnames = ['product_id', 'product_name', 'product_price', 'product_quantity', 'date_updated', 'brand_id']
+                    fieldnames = ['product_name', 'product_price', 'product_quantity', 'date_updated']
                     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
                     writer.writeheader()
@@ -74,11 +78,10 @@ Press enter to continue...''')
                         if len(str(item.product_price)) == 1:
                             newp = '$' + '0.0' + str(item.product_price)
                         writer.writerow({
-                            'product_id': item.product_id,
                             'product_name': item.product_name,
                             'product_price': newp, 'product_quantity': item.product_quantity,
                             'date_updated': str(datetime.datetime.strftime(item.date_updated, '%m/%d/%Y')),
-                            'brand_id': item.brand_id})
+                            'brand_name': models.session.query(Brands).filter_by(brand_id=item.brand_id)})
                 wenis = input('''---------------------------------------
 A backup for your database has been created :)
 Press any Key to continue...''')
