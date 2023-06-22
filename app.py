@@ -66,7 +66,7 @@ Press enter to continue...''')
 
             elif choice == 'b':
                 with open('backup.csv', 'a', newline='') as csvfile:
-                    fieldnames = ['product_name', 'product_price', 'product_quantity', 'date_updated']
+                    fieldnames = ['product_name', 'product_price', 'product_quantity', 'date_updated', 'brand_name']
                     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
                     writer.writeheader()
@@ -81,10 +81,13 @@ Press enter to continue...''')
                             'product_name': item.product_name,
                             'product_price': newp, 'product_quantity': item.product_quantity,
                             'date_updated': str(datetime.datetime.strftime(item.date_updated, '%m/%d/%Y')),
-                            'brand_name': models.session.query(Brands).filter_by(brand_id=item.brand_id)})
+                            'brand_name': backupbrandfinder(item)})
                 wenis = input('''---------------------------------------
 A backup for your database has been created :)
 Press any Key to continue...''')
+            else:
+                print('That is an invalid selection.')
+                input('Please press enter to continue...')
 
         except ValueError as err:
             print(err)
@@ -163,6 +166,11 @@ def newpbrand():
         except TypeError as err:
             print(err)
             print("Please try again...")
+
+def backupbrandfinder(prod):
+    for brand in models.session.query(Brands):
+        if prod.brand_id == brand.brand_id:
+            return brand.brand_name
 
 if __name__ == "__main__":
     Base.metadata.create_all(engine)
