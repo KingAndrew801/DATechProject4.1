@@ -102,7 +102,7 @@ def brandidfinder(brand):
 
 if __name__ == "__main__":
     Base.metadata.create_all(engine)
-    # rows = readerfunc('inventory')
+    rows = readerfunc('inventory')
     # for row in rows:
     #     print(row)
     for item in session.query(Brands):

@@ -3,6 +3,8 @@ import datetime, models, time, csv
 
 
 def startapp():
+    models.loadbrands()
+    models.prodloader()
     print("""---------------------------------------
 I am the inventory application.
 I exist to organize your inventory. :)
