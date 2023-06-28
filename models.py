@@ -27,7 +27,7 @@ class Product(Base):
     product_quantity = Column(Integer)
     product_price = Column(Integer)
     date_updated = Column(Date)
-    brand_id = Column(Integer)
+    brand_id = Column(Integer, ForeignKey("brands.brand_id"))
 
     def __repr__(self):
         return f"""{self.product_name}

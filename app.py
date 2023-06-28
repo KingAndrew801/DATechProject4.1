@@ -26,17 +26,56 @@ B = Backup the database
 ---------------------------------------
 Enter selection:  """).lower()
             if choice == 'v':
-                prodid = input('''---------------------------------------
+                tryviewing = True
+                while tryviewing == True:
+                    prodid = input('''---------------------------------------
 Enter product ID number:  ''')
-                print('---------------------------------------')
-                viewingprod = models.session.query(Product).filter(Product.product_id == prodid)[0]
-                input(f'''Here is your product information:
+                    print('---------------------------------------')
+                    if prodid.isalpha():
+                        print('Sorry please try again.')
+                    if int(prodid):
+                        tryviewing = False
+                        viewingprod = models.session.query(Product).filter(Product.product_id == prodid)[0]
+                        input(f'''Here is your product information:
 Product name: {viewingprod.product_name}
 Product quantity: {viewingprod.product_quantity}
 Product price: {viewingprod.product_price}
 Date updated: {viewingprod.date_updated}
 ---------------------------------------
 Press enter to proceed...''')
+                        choosing1 = True
+                        while choosing1:
+                            choosy = input('''---------------------------------------
+Would you like to modify this product Y/N?''')
+                            if choosy.lower() == 'y':
+                                choosy2 = input('''---------------------------------------
+D = Delete
+N = Change Name
+P = Change Price
+Q = Chance Quantity
+---------------------------------------
+Please make your selection:  ''')
+                                if choosy2.lower() == 'd':
+                                    models.sesssion.delete(viewingprod)
+                                elif choosy2.lower() == 'n':
+                                    print('---------------------------------------')
+                                    newname = input('What would you like to rename the product?')
+                                    choosy2.date_updated = datetime.datetime.today()
+                                    viewingprod.product_name = newname
+                                elif choosy2.lower() =='p':
+                                    print('---------------------------------------')
+                                    newprice = input("What is this product's new price?")
+                                    viewingprod.product_price = newprice
+                                elif choosy2.lower() == 'q':
+                                    print('---------------------------------------')
+                                    newquant = input("How much of this product do you have?")
+                                    viewingprod.product_quantity = newquant
+
+
+                    else:
+                        wenis = input('''That is not a valid product ID
+Press enter to enter a new product ID...''')
+
             elif choice == 'n':
                     createprod()
             elif choice == 'a':
@@ -168,6 +207,11 @@ def newpbrand():
         except TypeError as err:
             print(err)
             print("Please try again...")
+
+def viewcheck(num):
+    for i in models.session.query(Product):
+        if int(num) == i.product_id:
+            return True
 
 def backupbrandfinder(prod):
     for brand in models.session.query(Brands):
