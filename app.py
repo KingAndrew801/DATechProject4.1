@@ -28,54 +28,57 @@ Enter selection:  """).lower()
             if choice == 'v':
                 tryviewing = True
                 while tryviewing == True:
-                    prodid = input('''---------------------------------------
+                    try:
+                        prodid = input('''---------------------------------------
 Enter product ID number:  ''')
-                    print('---------------------------------------')
-                    if prodid.isalpha():
-                        print('Sorry please try again.')
-                    if int(prodid):
-                        tryviewing = False
-                        viewingprod = models.session.query(Product).filter(Product.product_id == prodid)[0]
-                        input(f'''Here is your product information:
+                        print('---------------------------------------')
+                        if int(prodid) == int:
+                            prodid = int(prodid)
+                            tryviewing = False
+                        else:
+                            raise ValueError("Sorry please try again")
+                    except ValueError as err:
+                        print(err)
+                    viewingprod = models.session.query(Product).filter(Product.product_id == prodid)[0]
+                    input(f'''Here is your product information:
 Product name: {viewingprod.product_name}
 Product quantity: {viewingprod.product_quantity}
 Product price: {viewingprod.product_price}
 Date updated: {viewingprod.date_updated}
 ---------------------------------------
 Press enter to proceed...''')
-                        choosing1 = True
-                        while choosing1:
-                            choosy = input('''---------------------------------------
+                    choosing1 = True
+                    while choosing1:
+                        choosy = input('''---------------------------------------
 Would you like to modify this product Y/N?''')
-                            if choosy.lower() == 'y':
-                                choosy2 = input('''---------------------------------------
+                        if choosy.lower() == 'y':
+                            choosy2 = input('''---------------------------------------
 D = Delete
 N = Change Name
 P = Change Price
 Q = Chance Quantity
 ---------------------------------------
 Please make your selection:  ''')
-                                if choosy2.lower() == 'd':
-                                    models.sesssion.delete(viewingprod)
-                                elif choosy2.lower() == 'n':
-                                    print('---------------------------------------')
-                                    newname = input('What would you like to rename the product?')
-                                    choosy2.date_updated = datetime.datetime.today()
-                                    viewingprod.product_name = newname
-                                elif choosy2.lower() =='p':
-                                    print('---------------------------------------')
-                                    newprice = input("What is this product's new price?")
-                                    viewingprod.product_price = newprice
-                                elif choosy2.lower() == 'q':
-                                    print('---------------------------------------')
-                                    newquant = input("How much of this product do you have?")
-                                    viewingprod.product_quantity = newquant
+                            if choosy2.lower() == 'd':
+                                models.sesssion.delete(viewingprod)
+                            elif choosy2.lower() == 'n':
+                                print('---------------------------------------')
+                                newname = input('What would you like to rename the product?')
+                                choosy2.date_updated = datetime.datetime.today()
+                                viewingprod.product_name = newname
+                            elif choosy2.lower() =='p':
+                                print('---------------------------------------')
+                                newprice = input("What is this product's new price?")
+                                viewingprod.product_price = newprice
+                            elif choosy2.lower() == 'q':
+                                print('---------------------------------------')
+                                newquant = input("How much of this product do you have?")
+                                viewingprod.product_quantity = newquant
 
 
-                    else:
-                        wenis = input('''That is not a valid product ID
+                        else:
+                            wenis = input('''That is not a valid product ID
 Press enter to enter a new product ID...''')
-
             elif choice == 'n':
                     createprod()
             elif choice == 'a':
