@@ -32,7 +32,7 @@ Enter selection:  """).lower()
                         prodid = input('''---------------------------------------
 Enter product ID number:  ''')
                         print('---------------------------------------')
-                        if isinstance(prodid, int):
+                        if isinstance(int(prodid), int):
                             tryviewing = False
                         else:
                             raise ValueError("Sorry please try again")
@@ -48,38 +48,45 @@ Date updated: {viewingprod.date_updated}
 Press enter to proceed...''')
                 choosing1 = True
                 while choosing1:
-                    choosy = input('''---------------------------------------
+                    try:
+                        choosy = input('''---------------------------------------
 Would you like to modify this product Y/N?''')
-                    if choosy.lower() == 'y':
-                        choosy2 = input('''---------------------------------------
+                        if choosy.lower() != 'y' or 'n':
+                            print("That selection is invalid, please try again.")
+                        elif choosy.lower() == 'y':
+                            choosing1 = False
+                            choosy2 = input('''---------------------------------------
 D = Delete
 N = Change Name
 P = Change Price
 Q = Chance Quantity
 ---------------------------------------
 Please make your selection:  ''')
-                        if choosy2.lower() == 'd':
-                            models.sesssion.delete(viewingprod)
-                        elif choosy2.lower() == 'n':
-                            print('---------------------------------------')
-                            newname = input('What would you like to rename the product?')
-                            choosy2.date_updated = datetime.datetime.today()
-                            viewingprod.product_name = newname
-                        elif choosy2.lower() =='p':
-                            print('---------------------------------------')
-                            newprice = input("What is this product's new price?")
-                            viewingprod.product_price = newprice
-                        elif choosy2.lower() == 'q':
-                            print('---------------------------------------')
-                            newquant = input("How much of this product do you have?")
-                            viewingprod.product_quantity = newquant
+                            if choosy2.lower() == 'd':
+                                 models.sesssion.delete(viewingprod)
+                            elif choosy2.lower() == 'n':
+                                print('---------------------------------------')
+                                newname = input('What would you like to rename the product?')
+                                choosy2.date_updated = datetime.datetime.today()
+                                viewingprod.product_name = newname
+                            elif choosy2.lower() =='p':
+                                print('---------------------------------------')
+                                newprice = input("What is this product's new price?")
+                                viewingprod.product_price = newprice
+                                choosy2.date_updated = datetime.datetime.today()
 
+                            elif choosy2.lower() == 'q':
+                                print('---------------------------------------')
+                                newquant = input("How much of this product do you have?")
+                                viewingprod.product_quantity = newquant
+                                choosy2.date_updated = datetime.datetime.today()
+                            else:
+                                raise ValueError("Sorry please try again")
+                    except ValueError as err:
+                        print(err)
 
-                    else:
-                            wenis = input('''That is not a valid product ID
-Press enter to enter a new product ID...''')
             elif choice == 'n':
-                    createprod()
+                        createprod()
             elif choice == 'a':
                 mostexp = ['nada', 0]
                 for i in models.session.query(Product):
